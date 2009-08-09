@@ -6,14 +6,12 @@ class HttpServer
   end
   
   def getFile()
-    log @request
     if @request =~ /GET .* HTTP.*/
       filename = @request.gsub(/GET /, '').gsub(/ HTTP.*/, '')
     end
     filename = @path + filename
-    log @request
     if !File.file?(filename)      
-      filename = @path + '/index.html'
+      filename = @path + 'index.html'
     end
     
     return filename
@@ -38,4 +36,8 @@ class HttpServer
       @session.close
     end
   end
+end
+
+def log(message)
+  puts message
 end

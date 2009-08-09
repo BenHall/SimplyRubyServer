@@ -1,11 +1,6 @@
 require 'socket'
 require 'HttpServer'
 
-
-def log(message)
-  puts message
-end
-
 log 'Starting server on 0.0.0.0:2020'
 server = TCPServer.new('0.0.0.0', 2020)
 path = Dir.getwd
